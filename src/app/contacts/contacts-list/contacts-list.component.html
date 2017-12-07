@@ -1,0 +1,13 @@
+<h1>Contacts</h1>
+
+<div *ngFor="let contact of contacts | async" class="card">
+  <item-detail [contact]='contact'></item-detail>
+</div>
+
+<loading-spinner *ngIf="showSpinner"></loading-spinner>
+
+<button type="button" class="button is-danger" (click)='deleteContacts()'>Delete All Contacts</button>
+
+<hr>
+
+<contact-form></contact-form>

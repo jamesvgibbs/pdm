@@ -1,0 +1,18 @@
+<h3 [ngClass]="{ 'strike-out': !contact.active }">
+  {{ contact.lastname || 'missing title' }}
+</h3>
+
+
+<div class="card-content">
+
+  Task Active?: {{ contact.active }}<br>
+  {{ contact.createdate | date: 'medium' }}
+
+</div>
+
+<div class="card-footer">
+  <span class="button is-small is-info card-footer-item" (click)='updateCreateDate()'>Update Create Date</span>
+  <span class="button is-small is-success card-footer-item" *ngIf='contact.active' (click)='updateActive(false)'>Mark Active</span>
+  <span class="button is-small is-warning card-footer-item" *ngIf='!contact.active' (click)='updateActive(true)'>Mark Inactive</span>
+  <span class="button is-small is-danger card-footer-item" (click)='deleteContact()'>Delete</span>
+</div>

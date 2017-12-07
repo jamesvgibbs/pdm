@@ -1,0 +1,19 @@
+<h3>New Contact Form</h3>
+
+<label class="label">Last Name: </label>
+
+<input placeholder="Contact Last Name" class="input" [(ngModel)]="contact.lastname" required minlength="2" maxlength="23" #lastname='ngModel' autofocus>
+
+<div *ngIf="lastname.dirty">
+  <span *ngIf='lastname.errors; then errors else valid'>template renders here...</span>
+</div>
+
+<button class="button is-primary" (click)='createContact()' [disabled]="!lastname.valid">Create</button>
+
+<ng-template #valid>
+  <p class="help is-success">looks good!</p>
+</ng-template>
+
+<ng-template #errors>
+  <p class="help is-danger">form contains errors!</p>
+</ng-template>
